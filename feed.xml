@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-02-07T18:23:38-05:00</updated><id>http://localhost:4000/</id><title type="html">evadgozreh</title><subtitle>A front-end developer who loves to learn and tinker with new technologies.</subtitle><entry><title type="html">Angular and Bulma</title><link href="http://localhost:4000/angular-bulma" rel="alternate" type="text/html" title="Angular and Bulma" /><published>2018-01-30T05:00:00-05:00</published><updated>2018-01-30T05:00:00-05:00</updated><id>http://localhost:4000/angular-bulma</id><content type="html" xml:base="http://localhost:4000/angular-bulma">&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;There may be times in your development process where you might want to run your code locally just like you would run it in production.  Most of us run different operating systems for development than where we run our production code.  Docker makes it easy for you to spin up an enviroment that mimics your production enviroment locally.&lt;/p&gt;
+
+
+&lt;h3 id=&quot;basictagging&quot;&gt;Getting Started&lt;/h3&gt;
+&lt;p&gt;We'll start off by creating a new project.  This is easy to do by using the &lt;code&gt;npm init&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;You'll need to install &lt;code&gt;angular-cli&lt;/code&gt; first.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ npm install -g angular-cli
+&lt;/code&gt;&lt;/pre&gt;
+  
+
+&lt;p&gt;Creating a new anuglar project is easy with &lt;code&gt;angular-cli&lt;/code&gt;.  Let'g go ahead and use the &lt;code&gt;ng new&lt;/code&gt; command to create a new angular project.  We will specify that we want to use &lt;code&gt;SASS&lt;/code&gt; for our CSS.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ ng new angular-bulma --style=scss
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I really don't like keeping my sass files at the root of my &lt;code&gt;src&lt;/code&gt; directory.  So we'll create a &lt;code&gt;sass&lt;/code&gt; directory to hold our sass files and then move our &lt;code&gt;styles.scss&lt;/code&gt; into it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ cd src
+$ mkdir sass
+$ mv styles.scss sass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now that we have moved the location of our main sass file, we'll have to update our &lt;code&gt;angular-cli.json&lt;/code&gt; configuration file to reflect that change.  Search for &lt;code&gt;styles&lt;/code&gt; and replace it with the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;&quot;styles&quot;: [
+  &quot;sass/styles.scss&quot;
+],
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now the fun begins.  Lets go ahead and install Bulma&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ npm install bulma --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You will be able to find Bulma sass files under &lt;code&gt;/node_modules/bulma/sass&lt;/code&gt;.  We'll first import the &lt;code&gt;initial-variables&lt;/code&gt; sass file.  After that we will import the main Bulma sass file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;@import &quot;~bulma/sass/utilities/initial-variables&quot;;
+
+@import &quot;~bulma/bulma&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We'll add a button to our page.  Find the &lt;code&gt;app.component.html&lt;/code&gt; file and add a button.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;&amp;lt;a class=&quot;button is-link&quot;&amp;gt;Success&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let's test it out.  Start your app.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go to your page by going &lt;a href=&quot;http://localhost:4200/&quot;&gt;here&lt;/a&gt;.  You should see Bulma working now with a nice stylized button.&lt;/p&gt;
+
+&lt;p&gt;Lastly, we are going to override one of Bulma's color variables.  Let's go ahead and add to our &lt;code&gt;styles.scss&lt;/code&gt; file.  Before the Bulma import, lets add a color override and set the primary color to red.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;// Customization
+$blue:  hsl(217, 10%, 53%);
+$primary: $red;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refresh the page and now you should see more of a grey color for the button than the default blue color.&lt;/p&gt;</content><author><name>David Herzog</name></author><category term="angular" /><category term="bulma" /><summary type="html">There may be times in your development process where you might want to run your code locally just like you would run it in production. Most of us run different operating systems for development than where we run our production code. Docker makes it easy for you to spin up an enviroment that mimics your production enviroment locally.</summary></entry><entry><title type="html">Node, Docker and nginx</title><link href="http://localhost:4000/node-docker-nginx" rel="alternate" type="text/html" title="Node, Docker and nginx" /><published>2018-01-01T05:18:00-05:00</published><updated>2018-01-01T05:18:00-05:00</updated><id>http://localhost:4000/node-docker-nginx</id><content type="html" xml:base="http://localhost:4000/node-docker-nginx">&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;There may be times in your development process where you might want to run your code locally just like you would run it in production.  Most of us run different operating systems for development than where we run our production code.  Docker makes it easy for you to spin up an enviroment that mimics your production enviroment locally.&lt;/p&gt;
+
+
+&lt;h3 id=&quot;basictagging&quot;&gt;Getting Started&lt;/h3&gt;
+&lt;p&gt;We'll start off by creating a new project.  This is easy to do by using the &lt;code&gt;npm init&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ npm init -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lets go ahead and create a source directory and create a simple index.html file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ mkdir src
+$ cd src
+$ touch index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once you have created the index.html file, add the following html code for a very simple example.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;title&amp;gt;Node-Docker-nginx&amp;lt;/title&amp;gt;
+  &amp;lt;/head&amp;gt;
+  
+  &amp;lt;body&amp;gt;
+    &amp;lt;p&amp;gt;Hello Node Docker nginx example&amp;lt;/p&amp;gt;
+  &amp;lt;body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you will create your Dockerfile.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;$ touch Dockerfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We'll leverage the existing nginx docker container from &lt;a href=&quot;https://hub.docker.com/_/nginx/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;# Builds a Docker to deliver src/
+FROM nginx:latest
+COPY src/ /usr/share/nginx/html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We'll use your Dockerfile to create the nginx docker image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;docker build -t node-docker-nginx:latest .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now the docker image should be created.  To verify, run the following docker command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;docker images 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should see your newly created docker image like this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+node-docker-nginx        latest              4a3eea93df52        5 seconds ago       181.5 MB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, you'll create the docker container by running the following docker command.  This will run nginx on port &lt;code&gt;8080&lt;/code&gt; instead of the default port of &lt;code&gt;80&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;docker run --name node-docker-nginx -d -p 8080:80 node-docker-nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;List the containers that you have created.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;docker ps -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should see your new docker container like this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;CONTAINER ID    IMAGE                COMMAND                  ...   PORTS                           NAMES
+38be8f13dcd9    node-docker-nginx    &quot;nginx -g 'daemon off&quot;   ...   443/tcp, 0.0.0.0:8080-&gt;80/tcp   node-docker-nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now all you have to do is start your container.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;nohighlight&quot;&gt;docker start node-docker-nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Go to your &lt;code&gt;index.html&lt;/code&gt; page by going &lt;a href=&quot;http://localhost:8080/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>David Herzog</name></author><category term="node" /><category term="docker" /><category term="nginx" /><summary type="html">There may be times in your development process where you might want to run your code locally just like you would run it in production. Most of us run different operating systems for development than where we run our production code. Docker makes it easy for you to spin up an enviroment that mimics your production enviroment locally.</summary></entry></feed>
