@@ -1,1 +1,0 @@
-# davidjamesherzog.github.io
