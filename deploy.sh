@@ -13,7 +13,7 @@ cp -R blog/.vuepress/dist/ docs/
 
 # git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy vue-typescript-decorators'
 
 # push to github
 git push -u origin master
