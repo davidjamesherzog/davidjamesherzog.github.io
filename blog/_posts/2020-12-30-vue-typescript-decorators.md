@@ -182,16 +182,16 @@ To reference the count in the Vuex state, we can use the namespaced decorator fr
   private counter!: number;
 
   @counterModule.Getter("count")
-  private getCounter: any;
+  private getCounter!: () => number;
 ```
 
 To reference the actions in the Vuex store, we will use the namespaced decorator again to create private level variables in the component to reference the Vuex actions.
 ```typescript
   @counterModule.Action
-  private add: any;
+  private add!: () => Promise<void>;
 
   @counterModule.Action
-  private subtract: any;
+  private subtract!: () => Promise<void>;
 ```
 
 Last thing to do in the component is to create the template.  This is pretty straight forward.  We will create an `h1` that displays the passed property, two buttons for adding and subtracting from the counter and two divs to display the counter from the Vuex state and getters.
@@ -242,13 +242,13 @@ export default class Counter extends Vue {
   private counter!: number;
 
   @counterModule.Getter("count")
-  private getCounter: any;
+  private getCounter!: () => number;
 
   @counterModule.Action
-  private add: any;
+  private add!: () => Promise<void>;
 
   @counterModule.Action
-  private subtract: any;
+  private subtract!: () => Promise<void>;
 }
 </script>
 ```
