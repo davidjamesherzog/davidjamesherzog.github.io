@@ -62,7 +62,7 @@ You will be prompted with which version of vue.js you want to use.  In this exam
 Before we start coding, we need to install the libraries that add decorator support to our project.  Here is a list of libraries we will be adding:
 
 - [vue-class-component](https://github.com/vuejs/vue-class-component) - used to define components which is installed by default when Typescript Vue 3 project created
-- [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) - used to define props, watches, etc
+- [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) - used to define props, watches, etc.
 - [vuex-class](https://github.com/ktsn/vuex-class) - used to import state, getters, mutations and actions in components
 - [vuex-class-modules](https://github.com/gertqin/vuex-class-modules) - used to define state, getters, mutations and actions
 
@@ -90,7 +90,7 @@ export default class Home extends Vue {}
 
 Next we are going to setup the Vuex store.  I will create a vuex module so you can see what that looks like using the `vuex-class-modules` libary.  This counter example doesn't require a module since it is so simple but most projects increase in complexity pretty quickly where splitting out your stores into modules becomes important.
 
-We will go ahead and create a new store called `counter.ts`.  You will notice that we just need to export a default class that extends `VueModule` from `vuex-class-modules`.  Inside the class we will create examples of state, getters, mutations and actions. 
+We will go ahead and create a new store called `counter.ts` under `src/store`.  You will notice that we just need to export a default class that extends `VueModule` from `vuex-class-modules`.  Inside the class we will create examples of state, getters, mutations and actions. 
 - State - Inside the class we will add a private level variable called `_count`.  All state will be defined as class level variables.  
 - Getters - I created a getter method called `count` to return the value of the class level variable.  All vuex getters will be defined as javascript getters in the class.  This getter was not necessary for this simple example but I threw it in there so that you can see examples of a getter.
 - Mutations - Two mutations are added, one to add to the counter and one to subtract from the counter.  These are just standard methods in the class but need to be decorated with `@Mutation`.
@@ -136,7 +136,7 @@ export default class Counter extends VuexModule {
 }
 ```
 
-We now need to register `counter.ts` as a module using Vuex 4 (version 4 is used automaticall in a Vue 3 project).  Using the new Vuex 4 syntax, we create an empty store with `createStore` and then create a new instance of `Counter` and register it with the module name of `counter`.
+We now need to register `counter.ts` as a module using Vuex 4 (version 4 is used automatically in a Vue 3 project).  Using the new Vuex 4 syntax, we create an empty store with `createStore` and then create a new instance of `Counter` and register it with the module name of `counter`.  We will do this in `index.ts` to define the counter module and any subsequent modules we create.
 
 ```typescript
 // src/store/index.ts
@@ -170,7 +170,7 @@ export default class Counter extends Vue {
 </script>
 ```
 
-We'll add a property to the `Counter` component just as an exmple of how to use the `@Prop` decorator from the `vue-property-decorator` library.  This property serves no real purpose in this example but just gives you an idea on how to use it.  There is a way to define the property in the `@Options` decorator but I prefer to use `vue-property-decorator` instead. 
+We'll add a property to the `Counter` component just as an example of how to use the `@Prop` decorator from the `vue-property-decorator` library.  This property serves no real purpose in this example but just gives you an idea on how to use it.  There is a way to define the property in the `@Options` decorator but I prefer to use `vue-property-decorator` instead. 
 ```typescript
   @Prop({ type: String })
   private msg!: string;
