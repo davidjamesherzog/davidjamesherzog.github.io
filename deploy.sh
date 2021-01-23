@@ -13,7 +13,7 @@ cp -R blog/.vuepress/dist/ docs/
 
 # git init
 git add -A
-git commit -m 'deploy nuxt-typescript-decorators'
+git commit -m 'deploy about page'
 
 # push to github
 git push -u origin master
