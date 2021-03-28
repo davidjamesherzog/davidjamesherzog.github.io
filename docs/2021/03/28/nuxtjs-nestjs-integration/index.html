@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Nuxt.js with Nest.js backend | David Herzog</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    
+    <meta name="description" content="Creating a Nuxt.js project with Nest.js backend">
+    
+    <link rel="preload" href="/assets/css/0.styles.3cec9bc8.css" as="style"><link rel="preload" href="/assets/js/app.4bc050ac.js" as="script"><link rel="preload" href="/assets/js/6.8aea3b72.js" as="script"><link rel="preload" href="/assets/js/3.9c2e4e09.js" as="script"><link rel="preload" href="/assets/js/19.34706376.js" as="script"><link rel="prefetch" href="/assets/js/10.762a2b26.js"><link rel="prefetch" href="/assets/js/11.a912d353.js"><link rel="prefetch" href="/assets/js/12.d5e1df76.js"><link rel="prefetch" href="/assets/js/13.e4ae86dd.js"><link rel="prefetch" href="/assets/js/14.3eda4054.js"><link rel="prefetch" href="/assets/js/15.d66e0f7d.js"><link rel="prefetch" href="/assets/js/16.b91e6ee9.js"><link rel="prefetch" href="/assets/js/17.6e5f244b.js"><link rel="prefetch" href="/assets/js/18.4ccdd5f7.js"><link rel="prefetch" href="/assets/js/20.56d36163.js"><link rel="prefetch" href="/assets/js/4.daabf931.js"><link rel="prefetch" href="/assets/js/5.0b2e60d7.js"><link rel="prefetch" href="/assets/js/7.26298610.js"><link rel="prefetch" href="/assets/js/8.3482b553.js"><link rel="prefetch" href="/assets/js/9.b07c0af2.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.9158f64c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3cec9bc8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><nav class="navbar navbar-expand-md navbar-light bg-white fixed-top"><div class="container"><a href="/" class="navbar-brand"><img src="/assets/img/dave.png" class="navbar-img">
+            David Herzog
+          </a> <button type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button> <div id="navbarsExampleDefault" class="collapse navbar-collapse"><ul class="navbar-nav ml-auto"><li class="nav-item"><a href="/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/tag/" class="nav-link">Tags</a></li><li class="nav-item"><a href="/about/" class="nav-link">About</a></li> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></ul></div></div></nav></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="mobile-home-link navbar-brand"><img src="/assets/img/dave.png"> David Herzog
+      </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/">Blog</a></li><li class="mobile-nav-item"><a href="/tag/">Tags</a></li><li class="mobile-nav-item"><a href="/about/">About</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="container wrapmain"><div id="vuepress-theme-blog__post-layout" data-v-0b02e43c><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content" data-v-0b02e43c><div class="row justify-content-center" data-v-0b02e43c><div class="col-md-8" data-v-0b02e43c><header data-v-0b02e43c><span class="text-muted" data-v-0b02e43c><div class="post-meta" data-v-0b02e43c><!----> <div class="post-meta-date"><time pubdate itemprop="datePublished" datetime="2021-03-28T00:00:00.000Z">
+      Sat, Mar 27 2021
+    </time></div> <!----></div></span> <h1 itemprop="name headline" class="article-head mt-3" data-v-0b02e43c>
+            Nuxt.js with Nest.js backend
+          </h1> <p class="lead" data-v-0b02e43c>Creating a Nuxt.js project with Nest.js backend</p> <div data-v-0b02e43c><span><div class="d-flex align-items-center"><a class="profile-avatar"><img src="/assets/img/dave.png" alt="Dave" class="avatar-image"></a> <div><span>Dave</span>  
+        <a href="https://www.linkedin.com/in/davidjamesherzog/" target="_blank" rel="noopener noreferrer" class="external btn btn-sm btn-outline-dark">Follow</a></div></div></span></div></header></div></div> <div class="row justify-content-center text-center mt-4 mb-40" data-v-0b02e43c><div class="col-md-9" data-v-0b02e43c><img src="/assets/img/nuxt-nest.png" class="featuredimg" data-v-0b02e43c></div></div> <div class="row justify-content-center" data-v-0b02e43c><div class="col-md-8" data-v-0b02e43c><div itemprop="articleBody" class="content__default" data-v-0b02e43c><p>I really enjoy working with both Nuxt.js and Nest.js.  I wanted to see if I could get the two working together in one application.  I spent a lot of time trying different ways of getting this to work.  I will go over the solution I came up with and walk you through step by step on how to put the two in one project.  The solution is not perfect, but should work well enough.  I would only recommend this for smaller applications.  If you are working on a larger application, I would recommend that you keep the two separate.</p> <h2 id="create-app"><a href="#create-app" class="header-anchor">#</a> Create app</h2> <p>First we want to start off by creating a new nuxt.js project using <code>npx</code>.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ npx create-nuxt-app nuxtjs-nestjs-integration
+</code></pre></div><p>You will be prompted with a series of questions on how to create your project.  You can choose what you want to include in the project but just make sure to select <code>Typescript</code>, <code>Axios</code>, <code>ESLint</code>, <code>Prettier</code> and <code>Jest</code>.  Here are the settings I chose.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>create-nuxt-app v3.6.0
+✨  Generating Nuxt.js project <span class="token keyword">in</span> nuxtjs-nestjs-integration
+? Project name: nuxtjs-nestjs-integration
+? Programming language: TypeScript
+? Package manager: Npm
+? UI framework: None
+? Nuxt.js modules: Axios - Promise based HTTP client
+? Linting tools: ESLint, Prettier
+? Testing framework: Jest
+? Rendering mode: Universal <span class="token punctuation">(</span>SSR / SSG<span class="token punctuation">)</span>
+? Deployment target: Server <span class="token punctuation">(</span>Node.js hosting<span class="token punctuation">)</span>
+? Development tools: jsconfig.json <span class="token punctuation">(</span>Recommended <span class="token keyword">for</span> VS Code <span class="token keyword">if</span> you're not using typescript<span class="token punctuation">)</span>
+? Continuous integration: None
+? Version control system: Git
+</code></pre></div><p>When I created the project, I chose to include eslint and prettier, so I am going to update the <code>.prettierrc</code> file to expect semicolons at the end of lines and turn off trailing commas.  Just my own personal preference.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// .prettierrc</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;trailingComma&quot;</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;semi&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;arrowParens&quot;</span><span class="token operator">:</span> <span class="token string">&quot;always&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;singleQuote&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>I ran the lint command and fixed all the issues from my changes for prettier.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run lint
+</code></pre></div><h2 id="move-app-to-client-directory"><a href="#move-app-to-client-directory" class="header-anchor">#</a> Move app to client directory</h2> <p>We need to separate the nuxt and nest code so we will create a <code>client</code> directory and move the following directories inside of it.</p> <ul><li>assets</li> <li>components</li> <li>layouts</li> <li>middleware</li> <li>pages</li> <li>plugins</li> <li>static</li> <li>store</li></ul> <p>Move the <code>Logo.spec.js</code> file to <code>client/components</code> and remove the <code>test</code> directory.  Make sure to update the import inside <code>Logo.spec.js</code>.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// client/components/Logo.spec.js</span>
+<span class="token keyword">import</span> Logo <span class="token keyword">from</span> <span class="token string">'./Logo.vue'</span><span class="token punctuation">;</span>
+</code></pre></div><p>Next, we will configure the nuxt app to know that all the nuxt directories are in 'client'.  Add the following to <code>nuxt.config.js</code></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// nuxt.config.js</span>
+srcDir<span class="token operator">:</span> <span class="token string">'client/'</span>
+</code></pre></div><h2 id="nuxt-decorators"><a href="#nuxt-decorators" class="header-anchor">#</a> Nuxt Decorators</h2> <p>Before we start adding in next.js, we need to install the libraries that add decorator support to our nuxt.js project.  Here is a list of libraries we will be adding:</p> <ul><li><a href="https://github.com/nuxt-community/nuxt-property-decorator" target="_blank" rel="noopener noreferrer">nuxt-property-decorator<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> - used to define vue components, props, watches, etc.</li></ul> <p>If we look at the <code>index.vue</code> page, we will import <code>nuxt-property-decorator</code> which uses the <code>Component</code> decorator to define a Vue component.  Inside the <code>@Component</code> decorator, I added the <code>name</code> attribute and called this view <code>Index</code>.  Also notice how you define a class called <code>Index</code> as the default export and extend from <code>Vue</code> from the <code>nuxt-property-decorator</code> library.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> <span class="token function">install</span> nuxt-property-decorator --save
+</code></pre></div><p>Update <code>index.vue</code> as follows:</p> <div class="language-vue extra-class"><pre class="language-vue"><code>// pages/index.vue
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ts<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Vue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nuxt-property-decorator'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Index'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h2 id="adding-nest-js"><a href="#adding-nest-js" class="header-anchor">#</a> Adding Nest.js</h2> <p>To add nest.js, we will first create a shell project that we can copy the base structure from.  Run the following commands to create a bare bones nest.js project.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> i -g @nestjs/cli
+$ nest new project-name
+</code></pre></div><p>Looking at the generated <code>package.json</code>, there are some dependencies that we can install into our project.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> i --save @nestjs/common @nestjs/core @nestjs/platform-express reflect-metadata rxjs
+</code></pre></div><p>Lets do the same for the development dependencies.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> i --save-dev @nestjs/cli @nestjs/schematics @nestjs/testing @types/jest @types/supertest supertest
+</code></pre></div><p>Now we need to create a <code>server</code> directory and copy over files from nest project in <code>src</code> and <code>test</code> directories.</p> <div class="language- extra-class"><pre class="language-text"><code>server
+  --src
+    --app.controller.spec.ts
+    --app.controller.ts
+    --app.module.ts
+    --app.service.ts
+    --main.ts
+  --test
+    --app.e2e-spec.ts
+    --jest-e2e.json
+</code></pre></div><p>We will also copy <code>nest-cli.json</code> over to the root directory of the project.  Update <code>nest-cli.json</code> so that it points to the <code>server</code> directory.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// nest-cli.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;collection&quot;</span><span class="token operator">:</span> <span class="token string">&quot;@nestjs/schematics&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;sourceRoot&quot;</span><span class="token operator">:</span> <span class="token string">&quot;server/src&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;root&quot;</span><span class="token operator">:</span> <span class="token string">&quot;server&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Nest.js has some extra eslint settings that we need to copy over.  Add the following rules to <code>.eslintrc.js</code>.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// .eslintrc.js</span>
+rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'no-useless-constructor'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+  <span class="token string">'@typescript-eslint/interface-name-prefix'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+  <span class="token string">'@typescript-eslint/explicit-function-return-type'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+  <span class="token string">'@typescript-eslint/explicit-module-boundary-types'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+  <span class="token string">'@typescript-eslint/no-explicit-any'</span><span class="token operator">:</span> <span class="token string">'off'</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Trying to create a tsconfig.json that works for both nuxt and nest proves to be to problematic so we are going to create a separate tsconfig for nest.  Create a file named <code>tsconfig-server.json</code> in the root directory.  We will set the output directory to be <code>.nest</code> which follows the naming convention for the nuxt output directory which is <code>.nuxt</code>.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// tsconfig-server.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;compilerOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;module&quot;</span><span class="token operator">:</span> <span class="token string">&quot;commonjs&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;declaration&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;removeComments&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;emitDecoratorMetadata&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;experimentalDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;allowSyntheticDefaultImports&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;es2017&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sourceMap&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;outDir&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./.nest&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;baseUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;incremental&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Copy over <code>tsconfig.build.json</code> and update the path of the server tsconfig file.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// tsconfig.build.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token string">&quot;./tsconfig-server.json&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;node_modules&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;.nuxt&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;.nest&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;client&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;**/*spec.ts&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Lastly, we need to update the <code>tsconfig.json</code> file which will be used for the client code to include some types and exclude some directories.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// tsconfig.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;compilerOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;target&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ES2018&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;module&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ESNext&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;moduleResolution&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Node&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;lib&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;ESNext&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;ESNext.AsyncIterable&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;DOM&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;esModuleInterop&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;allowJs&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sourceMap&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;strict&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;noEmit&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;experimentalDecorators&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;baseUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;.&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;paths&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;~/*&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;./*&quot;</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;@/*&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;./*&quot;</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;types&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token string">&quot;@nuxt/types&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;@nuxtjs/axios&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;@types/node&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;@types/jest&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;@types/supertest&quot;</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;exclude&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;node_modules&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;.nuxt&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;.nest&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;server&quot;</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="testing"><a href="#testing" class="header-anchor">#</a> Testing</h2> <p>Before we worry about getting the app up and running, lets go ahead and get the nuxt unit tests, nest unit tests and nest e2e tests running.  I first tried to get all the unit tests working together and realized it was more trouble than it was worth so I've separated them out.</p> <p>We will start by adding two coverage directories to our <code>.gitignore</code> file.  I will elaborate more on this shortly.  Also include the build directory for nest.js.</p> <div class="language- extra-class"><pre class="language-text"><code>// .gitignore
+coverage-client
+coverage-server
+
+# nest.js build output
+.nest
+</code></pre></div><h3 id="client-tests"><a href="#client-tests" class="header-anchor">#</a> Client tests</h3> <p>To get the nuxt tests working, we need to update <code>rootDir</code> and <code>coverageDirectory</code> in <code>jest.config.js</code>.  The <code>rootDir</code> needs to point to the <code>client</code> directory and the <code>coverageDirectory</code> will point to <code>coverage-client</code> so we can separate it from the server coverage report.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// jest.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  moduleNameMapper<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'^@/(.*)$'</span><span class="token operator">:</span> <span class="token string">'&lt;rootDir&gt;/$1'</span><span class="token punctuation">,</span>
+    <span class="token string">'^~/(.*)$'</span><span class="token operator">:</span> <span class="token string">'&lt;rootDir&gt;/$1'</span><span class="token punctuation">,</span>
+    <span class="token string">'^vue$'</span><span class="token operator">:</span> <span class="token string">'vue/dist/vue.common.js'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  moduleFileExtensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'ts'</span><span class="token punctuation">,</span> <span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token string">'vue'</span><span class="token punctuation">,</span> <span class="token string">'json'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  rootDir<span class="token operator">:</span> <span class="token string">'client'</span><span class="token punctuation">,</span>
+  transform<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'^.+\\.ts$'</span><span class="token operator">:</span> <span class="token string">'ts-jest'</span><span class="token punctuation">,</span>
+    <span class="token string">'^.+\\.js$'</span><span class="token operator">:</span> <span class="token string">'babel-jest'</span><span class="token punctuation">,</span>
+    <span class="token string">'.*\\.(vue)$'</span><span class="token operator">:</span> <span class="token string">'vue-jest'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  collectCoverage<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  coverageDirectory<span class="token operator">:</span> <span class="token string">'../coverage-client'</span><span class="token punctuation">,</span>
+  collectCoverageFrom<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">'&lt;rootDir&gt;/components/**/*.vue'</span><span class="token punctuation">,</span>
+    <span class="token string">'&lt;rootDir&gt;/pages/**/*.vue'</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>Update the <code>test</code> npm script to <code>test:client</code>.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;test:client&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest&quot;</span>
+</code></pre></div><p>Run the client tests to make sure they work.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run test:client
+</code></pre></div><h3 id="server-tests"><a href="#server-tests" class="header-anchor">#</a> Server Tests</h3> <p>For the nest.js tests, we have to do a little more work.  Create a <code>jest-server.config.js</code> file to hold the configuration for the nest.js tests.  Just like the nuxt tests, we need to update <code>rootDir</code> and <code>coverageDirectory</code> in <code>jest-server.config.js</code>.  The <code>rootDir</code> needs to point to the <code>server</code> directory and the <code>coverageDirectory</code> will point to <code>coverage-server</code> so we can separate it from the client coverage report.  You also need to specify the <code>globals</code> property so you can point to the server tsconfig file.</p> <div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  globals<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'ts-jest'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      tsConfig<span class="token operator">:</span> <span class="token string">'./tsconfig-server.json'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  moduleFileExtensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'js'</span><span class="token punctuation">,</span> <span class="token string">'json'</span><span class="token punctuation">,</span> <span class="token string">'ts'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  rootDir<span class="token operator">:</span> <span class="token string">'server'</span><span class="token punctuation">,</span>
+  testRegex<span class="token operator">:</span> <span class="token string">'.*\\.spec\\.ts$'</span><span class="token punctuation">,</span>
+  transform<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string">'^.+\\.(t|j)s$'</span><span class="token operator">:</span> <span class="token string">'ts-jest'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  collectCoverage<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  collectCoverageFrom<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'**/*.(t|j)s'</span><span class="token punctuation">,</span> <span class="token string">'!**/*.e2e-spec.(t|j)s'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  coverageDirectory<span class="token operator">:</span> <span class="token string">'../coverage-server'</span><span class="token punctuation">,</span>
+  testEnvironment<span class="token operator">:</span> <span class="token string">'node'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>Now lets add a npm command to run the server tests.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;test:server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest --config ./jest-server.config.js&quot;</span>
+</code></pre></div><p>Run the server tests to make sure they work.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run test:server
+</code></pre></div><h3 id="server-e2e-tests"><a href="#server-e2e-tests" class="header-anchor">#</a> Server e2e Tests</h3> <p>For the server e2e tests, we need to configure the e2e jest config to point to the correct tsconfig file.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// server/test/jest-e2e.json</span>
+<span class="token punctuation">{</span>
+  <span class="token property">&quot;globals&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ts-jest&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;tsConfig&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tsconfig-server.json&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;moduleFileExtensions&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;js&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;json&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ts&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;rootDir&quot;</span><span class="token operator">:</span> <span class="token string">&quot;.&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;testEnvironment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;node&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;testRegex&quot;</span><span class="token operator">:</span> <span class="token string">&quot;.e2e-spec.ts$&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;transform&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;^.+\\.(t|j)s$&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ts-jest&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Now lets add a npm command to run the server e2e tests.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;test:e2e&quot;</span><span class="token operator">:</span> <span class="token string">&quot;jest --config ./server/test/jest-e2e.json&quot;</span>
+</code></pre></div><p>Run the server e2e tests to make sure they work.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run test:e2e
+</code></pre></div><h3 id="all-tests"><a href="#all-tests" class="header-anchor">#</a> All tests</h3> <p>Add a npm command to run all the tests.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run test:client &amp;&amp; npm run test:server &amp;&amp; npm run test:e2e&quot;</span>
+</code></pre></div><p>Run all the tests to make sure they work.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run <span class="token builtin class-name">test</span>
+</code></pre></div><h2 id="formatting-and-linting"><a href="#formatting-and-linting" class="header-anchor">#</a> Formatting and Linting</h2> <p>This part is pretty trivial.  We need to update the <code>lint:js</code> npm script to include the server directory and we need to copy over the <code>format</code> npm script from the nest.js application and update it to include the client code.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;lint:js&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint --ext \&quot;.ts,.js,.vue\&quot; --ignore-path .gitignore .&quot;</span><span class="token punctuation">,</span>
+<span class="token property">&quot;lint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;npm run lint:js&quot;</span><span class="token punctuation">,</span>
+<span class="token property">&quot;format&quot;</span><span class="token operator">:</span> <span class="token string">&quot;prettier --write \&quot;server/**/*.ts\&quot; \&quot;client/**/*.(js|ts|vue)\&quot;&quot;</span><span class="token punctuation">,</span>
+</code></pre></div><p>Now you can run <code>lint</code> and <code>format</code> for both the client and server code.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run <span class="token function">format</span>
+$ <span class="token function">npm</span> run lint
+</code></pre></div><h2 id="development-and-production-builds"><a href="#development-and-production-builds" class="header-anchor">#</a> Development and Production builds</h2> <p>The last thing we have to do is get the application up and running in development and production modes.  This is where it gets a little interesting.  For development mode, we will have to run the client on one port and the server on another port.  I was unable to get the two working together so that the hot code replacement would work with the nest.js code.  During development, I want to be able to make changes to the code and have it redeployed automatically.  For the production build, we will bundle everything up so that everything can run on the same port.</p> <h3 id="development"><a href="#development" class="header-anchor">#</a> Development</h3> <p>We will start with updating the nest.js <code>main.ts</code> file to define the path (<code>/api</code>) and port (<code>4000</code>) for development mode.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> NestFactory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./app.module'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">await</span> NestFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  app<span class="token punctuation">.</span><span class="token function">setGlobalPrefix</span><span class="token punctuation">(</span><span class="token string">'/api'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">4000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Now update the <code>nuxt.config.js</code> file to define the default Axios URL for the nest.js API.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// nuxt.config.js</span>
+axios<span class="token operator">:</span> <span class="token punctuation">{</span>
+  baseURL<span class="token operator">:</span> <span class="token string">'http://localhost:4000/api'</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><p>Lets go ahead and add the API call to the home page.  We'll add an <code>asyncData</code> method call to return the value from the API call and and a <code>hello</code> variable to display <code>Hello World</code> on the home page.  We use <code>asyncData</code> here to make the API call on the server and not the client.  If you chose to use the nuxt application as a SPA, you should use the <code>mounted</code> hook here instead.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// client/pages/index.vue</span>
+<span class="token operator">&lt;</span>script lang<span class="token operator">=</span><span class="token string">&quot;ts&quot;</span><span class="token operator">&gt;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> Vue <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nuxt-property-decorator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Context <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nuxt/types'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  name<span class="token operator">:</span> <span class="token string">'Index'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Index</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  <span class="token keyword">private</span> hello<span class="token operator">!</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+
+  <span class="token keyword">async</span> <span class="token function">asyncData</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> $axios <span class="token punctuation">}</span><span class="token operator">:</span> Context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> hello<span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      hello <span class="token operator">=</span> <span class="token keyword">await</span> $axios<span class="token punctuation">.</span><span class="token function">$get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// eslint-disable-next-line no-console</span>
+      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      hello
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>Output the return value from the API by adding this to the end of the template.</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token comment">&lt;!-- client/pages/index.vue --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>{{ hello }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>Lastly, we will add another npm script to run the nest.js server in development mode.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;dev:server&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nest start --debug --watch&quot;</span><span class="token punctuation">,</span>
+</code></pre></div><p>Now, for development mode, run the following two npm scripts in two different terminal windows.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run dev:server
+$ <span class="token function">npm</span> run dev
+</code></pre></div><p>Run the app on <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">http://localhost:3000<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> and verify that you see <code>Hello World!</code> on the home page.</p> <h3 id="production"><a href="#production" class="header-anchor">#</a> Production</h3> <p>Now lets get into the production build.  We will need a separate entry point for the nest.js server than the <code>main.ts</code> file. Go ahead and create a <code>nest.ts</code> file in the <code>server</code> directory.  This version is a little different than <code>main.ts</code> in that we don't specify the port or global prefix.  That will be configured within the <code>nuxt.config.js</code> file.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// server/nest.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> NestFactory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./src/app.module'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">await</span> NestFactory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>AppModule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> app<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> app<span class="token punctuation">.</span><span class="token function">getHttpAdapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> bootstrap<span class="token punctuation">;</span>
+</code></pre></div><p>Now lets concentrate on the <code>nuxt.config.js</code> file.  We'll use <code>process.env.NODE_ENV</code> to determine whether we are building for production or development mode.  We will need to make a few changes here.</p> <ul><li>Import the <code>nest.js</code> file that will be compiled from the <code>nest.ts</code> file we just created.  We'll update the build npm script soon to achieve this.</li> <li>In development mode, we will run nest.js on port <code>4000</code> and port <code>3000</code> in production mode (same as nuxt.js).  Feel free to run on whatever port you want.</li> <li>We will define <code>serverMiddleware</code> when we are building in production mode to run the API's.  You can find more about the <code>serverMiddleware</code> property <a href="https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-servermiddleware" target="_blank" rel="noopener noreferrer">here<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</li> <li>We'll use async/await to wait for the nest.js API's to be able to bootstrap</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// nuxt.config.js</span>
+<span class="token keyword">import</span> bootstrap <span class="token keyword">from</span> <span class="token string">'./.nest/nest.js'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> isDev <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'development'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">config</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  srcDir<span class="token operator">:</span> <span class="token string">'client/'</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Global page headers: https://go.nuxtjs.dev/config-head</span>
+  head<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token string">'nuxtjs-nestjs-integration'</span><span class="token punctuation">,</span>
+    htmlAttrs<span class="token operator">:</span> <span class="token punctuation">{</span>
+      lang<span class="token operator">:</span> <span class="token string">'en'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    meta<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> charset<span class="token operator">:</span> <span class="token string">'utf-8'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'viewport'</span><span class="token punctuation">,</span> content<span class="token operator">:</span> <span class="token string">'width=device-width, initial-scale=1'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span> hid<span class="token operator">:</span> <span class="token string">'description'</span><span class="token punctuation">,</span> name<span class="token operator">:</span> <span class="token string">'description'</span><span class="token punctuation">,</span> content<span class="token operator">:</span> <span class="token string">''</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    link<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> rel<span class="token operator">:</span> <span class="token string">'icon'</span><span class="token punctuation">,</span> type<span class="token operator">:</span> <span class="token string">'image/x-icon'</span><span class="token punctuation">,</span> href<span class="token operator">:</span> <span class="token string">'/favicon.ico'</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  serverMiddleware<span class="token operator">:</span> isDev <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> path<span class="token operator">:</span> <span class="token string">'/api'</span><span class="token punctuation">,</span> handler<span class="token operator">:</span> <span class="token keyword">await</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Global CSS: https://go.nuxtjs.dev/config-css</span>
+  css<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins</span>
+  plugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Auto import components: https://go.nuxtjs.dev/config-components</span>
+  components<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules</span>
+  buildModules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// https://go.nuxtjs.dev/typescript</span>
+    <span class="token string">'@nuxt/typescript-build'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Modules: https://go.nuxtjs.dev/config-modules</span>
+  modules<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// https://go.nuxtjs.dev/axios</span>
+    <span class="token string">'@nuxtjs/axios'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Axios module configuration: https://go.nuxtjs.dev/config-axios</span>
+  axios<span class="token operator">:</span> <span class="token punctuation">{</span>
+    baseURL<span class="token operator">:</span> isDev <span class="token operator">?</span> <span class="token string">'http://localhost:4000/api'</span> <span class="token operator">:</span> <span class="token string">'http://localhost:3000/api'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// Build Configuration: https://go.nuxtjs.dev/config-build</span>
+  build<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span>
+</code></pre></div><p>We just have to update our build npm script to first compile the nest.js code prior to building the nuxt.js code.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// package.json</span>
+<span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;nest build &amp;&amp; nuxt build&quot;</span>
+</code></pre></div><p>Now, for production mode, run the following npm scripts.</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">npm</span> run build
+$ <span class="token function">npm</span> run start
+</code></pre></div><p>Run the app on <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">http://localhost:3000<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> and verify that you see <code>Hello World!</code> on the home page.</p> <p>I hope this saves some of you some time trying to figure this out.  You can find the example source code <a href="https://github.com/davidjamesherzog/nuxtjs-nestjs-integration" target="_blank" rel="noopener noreferrer">here<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p></div> <div class="post-meta" data-v-0b02e43c><!----> <!----> <div itemprop="keywords" class="card-subheading post-meta-tags"><a href="/tag/nuxt.js" data-v-304a57ff> nuxt.js </a><a href="/tag/nest.js" data-v-304a57ff> nest.js </a><a href="/tag/typescript" data-v-304a57ff> typescript </a></div></div></div></div></article> <div class="row justify-content-center" data-v-0b02e43c><div class="col-md-9" data-v-0b02e43c><!----> <!----></div></div> <div class="sticker vuepress-toc" data-v-0b02e43c><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#create-app" title="Create app">Create app</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#move-app-to-client-directory" title="Move app to client directory">Move app to client directory</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#nuxt-decorators" title="Nuxt Decorators">Nuxt Decorators</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#adding-nest-js" title="Adding Nest.js">Adding Nest.js</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#testing" title="Testing">Testing</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#client-tests" title="Client tests">Client tests</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#server-tests" title="Server Tests">Server Tests</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#server-e2e-tests" title="Server e2e Tests">Server e2e Tests</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#all-tests" title="All tests">All tests</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#formatting-and-linting" title="Formatting and Linting">Formatting and Linting</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#development-and-production-builds" title="Development and Production builds">Development and Production builds</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#development" title="Development">Development</a></div><div class="vuepress-toc-item vuepress-toc-h3"><a href="#production" title="Production">Production</a></div></div></div></div> <footer class="themefooter"><div class="container"><div class="row justify-content-between"><div class="col"><ul class="list-unstyled contact"><li class="contact-item"><a href="https://github.com/davidjamesherzog" target="_blank" rel="noopener noreferrer" class="external"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              
+            </a></li><li class="contact-item"><a href="https://www.linkedin.com/in/davidjamesherzog/" target="_blank" rel="noopener noreferrer" class="external"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              
+            </a></li><li class="contact-item"><a href="https://twitter.com/evadgozreh" target="_blank" rel="noopener noreferrer" class="external"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+              
+            </a></li></ul></div> <div class="col text-right"><ul class="list-unstyled"><li class="copyright-item"><a href="https://bootstrapstarter.com/license/" target="_blank" rel="noopener noreferrer" class="external">Licensed MIT.</a></li><li class="copyright-item"><a href="https://bootstrapstarter.com/bootstrap-templates/vuepress-theme-mediumish/" target="_blank" rel="noopener noreferrer" class="external">Made with Mediumish - free Vuepress theme</a></li></ul></div></div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.4bc050ac.js" defer></script><script src="/assets/js/6.8aea3b72.js" defer></script><script src="/assets/js/3.9c2e4e09.js" defer></script><script src="/assets/js/19.34706376.js" defer></script>
+  </body>
+</html>

@@ -13,7 +13,7 @@ cp -R blog/.vuepress/dist/ docs/
 
 # git init
 git add -A
-git commit -m 'deploy about page'
+git commit -m 'deploy nuxtjs-nestjs-integration'
 
 # push to github
 git push -u origin master
