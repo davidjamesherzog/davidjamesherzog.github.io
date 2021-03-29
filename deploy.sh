@@ -13,7 +13,7 @@ cp -R blog/.vuepress/dist/ docs/
 
 # git init
 git add -A
-git commit -m 'deploy nuxtjs-nestjs-integration'
+git commit -m 'deploy nuxtjs-nestjs-integration fix typo'
 
 # push to github
 git push -u origin master

@@ -82,7 +82,7 @@ srcDir: 'client/'
 ```
 
 ## Nuxt Decorators
-Before we start adding in next.js, we need to install the libraries that add decorator support to our nuxt.js project.  Here is a list of libraries we will be adding:
+Before we start adding in nest.js, we need to install the libraries that add decorator support to our nuxt.js project.  Here is a list of libraries we will be adding:
 
 - [nuxt-property-decorator](https://github.com/nuxt-community/nuxt-property-decorator) - used to define vue components, props, watches, etc.
 
