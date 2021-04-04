@@ -8,6 +8,33 @@ tags:
 author: Dave
 featuredimg: /assets/img/docker.png
 summary: Creating a docker container with node.js and nginx
+meta:
+  - name: description
+    content: Creating a docker container with node.js and nginx
+  - name: keywords
+    content: docker node nginx
+  - name: og:title
+    content: Docker, Node and Nginx
+  - name: og:description
+    content: Creating a docker container with node.js and nginx
+  - name: og:site_name
+    content: davidjamesherzog.github.io
+  - name: og:image
+    content: https://davidjamesherzog.github.io/assets/img/docker.png
+  - name: og:type
+    content: website
+  - name: twitter:title
+    content: Docker, Node and Nginx
+  - name: twitter:description
+    content: Creating a docker container with node.js and nginx
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:image
+    content: https://davidjamesherzog.github.io/assets/img/docker.png
+  - name: twitter:site
+    content: '@evadgozreh'
+  - name: ttwitter:creator
+    content: '@evadgozreh'
 ---
 
 There may be times in your development process where you might want to run your code locally just like you would run it in production. Most of us run different operating systems for development than where we run our production code. Docker makes it easy for you to spin up an enviroment that mimics your production enviroment locally.

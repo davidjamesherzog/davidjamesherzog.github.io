@@ -8,6 +8,33 @@ tags:
 author: Dave
 featuredimg: /assets/img/nuxt-nest.png
 summary: Creating a Nuxt.js project with Nest.js backend
+meta:
+  - name: description
+    content: Creating a Nuxt.js project with Nest.js backend
+  - name: keywords
+    content: nuxt.js nest.js typescript
+  - name: og:title
+    content: Nuxt.js with Nest.js backend
+  - name: og:description
+    content: Creating a Nuxt.js project with Nest.js backend
+  - name: og:site_name
+    content: davidjamesherzog.github.io
+  - name: og:image
+    content: https://davidjamesherzog.github.io/assets/img/nuxt-nest.png
+  - name: og:type
+    content: website
+  - name: twitter:title
+    content: Nuxt.js with Nest.js backend
+  - name: twitter:description
+    content: Creating a Nuxt.js project with Nest.js backend
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:image
+    content: https://davidjamesherzog.github.io/assets/img/nuxt-nest.png
+  - name: twitter:site
+    content: '@evadgozreh'
+  - name: ttwitter:creator
+    content: '@evadgozreh'
 ---
 
 I really enjoy working with both Nuxt.js (vue.js SSR framework) and Nest.js (node.js server-side framework).  I wanted to see if I could get the two working together in one application.  I spent a lot of time trying different ways of getting this to work.  I will go over the solution I came up with and walk you through step by step on how to put the two in one project.  The solution is not perfect, but should work well enough.  I would only recommend this for smaller applications.  If you are working on a larger application, I would recommend that you keep the two separate.

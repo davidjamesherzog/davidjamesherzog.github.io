@@ -96,6 +96,8 @@ export default {
           return 'TwitterIcon'
         case 'linkedin':
           return 'LinkedinIcon'
+        case 'codepen':
+          return 'CodepenIcon'
       }
     },
   },

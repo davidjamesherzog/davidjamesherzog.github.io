@@ -8,6 +8,33 @@ tags:
 author: Dave
 featuredimg: /assets/img/vue.png
 summary: Creating a Vue.js project with Typescript and Decorators
+meta:
+  - name: description
+    content: Creating a Vue.js project with Typescript and Decorators
+  - name: keywords
+    content: vue.js typescript decorators
+  - name: og:title
+    content: Vue.js with Typescript and Decorators
+  - name: og:description
+    content: Creating a Vue.js project with Typescript and Decorators
+  - name: og:site_name
+    content: davidjamesherzog.github.io
+  - name: og:image
+    content: https://davidjamesherzog.github.io/assets/img/vue.png
+  - name: og:type
+    content: website
+  - name: twitter:title
+    content: Vue.js with Typescript and Decorators
+  - name: twitter:description
+    content: Creating a Vue.js project with Typescript and Decorators
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:image
+    content: https://davidjamesherzog.github.io/assets/img/vue.png
+  - name: twitter:site
+    content: '@evadgozreh'
+  - name: ttwitter:creator
+    content: '@evadgozreh'
 ---
 
 I've recently added Typescript and some decorator libraries to my vue.js projects.  It has allowed me to use a class syntax for my components and store files which I feel is easier to read than the normal vue.js javascript syntax.  I'll be going through a step by step process on how to achieve this.  We will be building a counter component that will allow you to increment/decrement a counter.

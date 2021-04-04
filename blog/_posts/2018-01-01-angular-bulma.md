@@ -7,6 +7,33 @@ tags:
 author: Dave
 featuredimg: /assets/img/angular.png
 summary: Adding Bulma to an Angular project
+meta:
+  - name: description
+    content: Adding Bulma to an Angular project
+  - name: keywords
+    content: docker node nginx
+  - name: og:title
+    content: Angular and Bulma
+  - name: og:description
+    content: Adding Bulma to an Angular project
+  - name: og:site_name
+    content: davidjamesherzog.github.io
+  - name: og:image
+    content: https://davidjamesherzog.github.io/assets/img/angular.png
+  - name: og:type
+    content: website
+  - name: twitter:title
+    content: Angular and Bulma
+  - name: twitter:description
+    content: Adding Bulma to an Angular project
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:image
+    content: https://davidjamesherzog.github.io/assets/img/angular.png
+  - name: twitter:site
+    content: '@evadgozreh'
+  - name: ttwitter:creator
+    content: '@evadgozreh'
 ---
 
 I recently wanted to include the Bulma CSS library into my Angular project. I didn't just want to include the library in my project, I wanted to be able to include just pieces of the library and maybe override a thing or two. This post will explain how to include Bulma into your Angular projects using SASS.

@@ -17,7 +17,7 @@ module.exports = {
       contact: [
         {
           type: 'codepen',
-          link: '#',
+          link: 'https://codepen.io/davidjamesherzog',
         },
         {
           type: 'facebook',
@@ -72,7 +72,11 @@ module.exports = {
       ],
     },
     sitemap: {
-      hostname: 'https://github.com/wowthemesnet/vuepress-theme-mediumish/'
+      hostname: 'https://davidjamesherzog.github.io/sitemap.xml'
+    },
+    comment: {
+      service: 'disqus',
+      shortname: 'davidjamesherzog.github.io',
     },
     smoothScroll: true
   },

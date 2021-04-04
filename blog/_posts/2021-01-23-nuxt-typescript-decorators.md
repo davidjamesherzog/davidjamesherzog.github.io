@@ -8,6 +8,33 @@ tags:
 author: Dave
 featuredimg: /assets/img/nuxt.png
 summary: Creating a Nuxt.js project with Typescript and Decorators
+meta:
+  - name: description
+    content: Creating a Nuxt.js project with Typescript and Decorators
+  - name: keywords
+    content: nuxt.js typescript decorators
+  - name: og:title
+    content: Nuxt.js with Typescript and Decorators
+  - name: og:description
+    content: Creating a Nuxt.js project with Typescript and Decorators
+  - name: og:site_name
+    content: davidjamesherzog.github.io
+  - name: og:image
+    content: https://davidjamesherzog.github.io/assets/img/nuxt.png
+  - name: og:type
+    content: website
+  - name: twitter:title
+    content: Nuxt.js with Typescript and Decorators
+  - name: twitter:description
+    content: Creating a Nuxt.js project with Typescript and Decorators
+  - name: twitter:card
+    content: summary_large_image
+  - name: twitter:image
+    content: https://davidjamesherzog.github.io/assets/img/nuxt.png
+  - name: twitter:site
+    content: '@evadgozreh'
+  - name: ttwitter:creator
+    content: '@evadgozreh'
 ---
 
 I recently created a post on creating a Vue.js project with Typescript and decorators.  I decided to follow it up with a similar post using Nuxt.js.  You can find my original post [here](https://davidjamesherzog.github.io/2020/12/30/vue-typescript-decorators/).  Using Typescript and decorators has allowed me to use a class syntax for my components and store files which I feel is easier to read than the normal vue.js javascript syntax.  I'll be going through a step by step process on how to achieve this.  We will be building a counter component that will allow you to increment/decrement a counter.
